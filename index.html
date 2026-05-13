@@ -3,9 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <title>Connect Four</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
     <!--TODO: Build the Markup for your Game. Don't forget to style it in a cascading stylesheet. -->
 
+    <div id="game-wrapper">
+        <!-- 1. intro, rules , start -->
+        <section id="introduction" class="overlay">
+            <div class="content-box">
+                <h1>Hello Players!</h1>
+                <p>Welcome to Connect Four!<br>
+                Game Rules: Connect four coins horizontally, vertically, or diagonally by clicking on any row.<br>
+                To start the game, press the button!</p>
+                <button id="start-btn">Start The Game</button>
+            </div>
+        </section>
+
+        <!-- 2. char selection -->
+        <section id="character-selection" class="hidden">
+            <div class="selection-layout">
+                <h2 id="char-name">Player 1: Pick your Hero</h2>
+                <div class="char-preview pixel-box">
+                    <img src="assets/char1.png" id="select-img" class="shadow-mode" alt="hero preview">
+                    <span class="mark">?</span>
+                </div>
+                <!-- button container for better styling -->
+                <div class="selection-controls">
+                    <button id="random-btn">Random Character</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. countdown section -->
+        <section id="countdown-overlay" class="overlay hidden">
+            <div class="countdown-content">
+                <h2 id="countdown-text">GET READY!</h2>
+                <div id="countdown-number">3</div>
+            </div>
+        </section>
+
+        <!-- 4. game board section -->
+        <section id="game-board" class="hidden">
+            <div class="game-layout">
+                <aside id="player-1-side" class="character-side">
+                    <img id="p1-reveald-char" src="" alt="p1 hero">
+                    <div class="player-name">Player 1</div>
+                </aside>
+
+                <main id="board-container">
+                    <div id="game-frame">
+                        <div id="grid" class="connect-four-grid"></div>
+                    </div>
+                </main>
+
+                <aside id="player-2-side" class="character-side">
+                    <img id="p2-reveald-char" src="" alt="p2 hero">
+                    <div class="player-name">Player 2</div>
+                </aside>
+
+            </div>
+
+            <div id="status-bar"><p id="status">Waiting...</p></div>
+            <div class="control-footer">
+                <button id="restart-btn" class="hidden">Play Again</button>
+            </div>
+        </section>
+    </div>
+
+    <script type="module" src="js/controller.connectfour.js"></script>
 </body>
 </html>

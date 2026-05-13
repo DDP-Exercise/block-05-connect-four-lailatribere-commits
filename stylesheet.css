@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+* { box-sizing: border-box; image-rendering: pixelated; }
+
+body {
+    margin: 0;
+    font-family: 'Pixelify Sans', cursive;
+    background-color: #fce4ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+p { margin: 0; }
+
+#game-wrapper {
+    position: relative;
+    width: 1250px;
+    height: 850px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden { display: none !important; }
+
+/* pixely boxes */
+.content-box, .pixel-box {
+    background: white;
+    border: 4px solid #000;
+    box-shadow: 4px 0 0 0 #000, -4px 0 0 0 #000, 0 4px 0 0 #000, 0 -4px 0 0 #000;
+    padding: 25px;
+    text-align: center;
+}
+
+/* buttons */
+.selection-layout, .selection-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    font-family: 'Pixelify Sans', cursive;
+    background-color: #f06292;
+    color: white;
+    border: 4px solid #000;
+    box-shadow: 4px 4px 0 #880e4f;
+    padding: 12px 24px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin: 15px auto;
+}
+button:hover {
+    background-color: #ec407a;
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 #880e4f;
+}
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* overlay and */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    text-align: center;
+}
+/* countdown */
+
+.countdown-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#countdown-number {
+    font-size: 12rem;
+    color: #f06292;
+    text-shadow: 6px 6px #000;
+    margin: 0;
+}
+
+#countdown-text {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: -20px;
+}
+
+/* preview */
+.char-preview {
+    width: 260px;
+    height: 360px;
+    margin: 20px auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#select-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.shadow-mode {
+    filter: brightness(0);
+    opacity: 0.4;
+}
+/* question mark */
+.mark {
+    position: absolute;
+    font-size: 7rem;
+    color: #f06292;
+    -webkit-text-stroke: 2px black;
+}
+
+/* board */
+.game-layout {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+/* char */
+.character-side {
+    width: 250px;
+    text-align: center;
+    padding: 30px;
+}
+
+.character-side img {
+    width: 230px;
+    height: 330px;
+    object-fit: contain;
+    transition: filter 0.3s;
+}
+
+/* char glow  */
+.p1-active img {
+    filter: drop-shadow(0 0 20px #2196f3);
+}
+.p2-active img {
+    filter: drop-shadow(0 0 20px #f06292);
+}
+
+/* frame */
+#game-frame {
+    width: 750px;
+    height: 650px;
+    background-image: url('assets/board-new.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+/* grid adjusted for board and coins */
+.connect-four-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    position: absolute;
+    width: 543px;
+    height: 450px;
+    left: 105px;
+    top: 99px;
+    gap: 0;
+}
+
+.slot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.coin {
+    width: 72px;
+    height: 72px;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    animation: dropIn 0.4s cubic-bezier(0.47, 0, 0.745, 0.715);
+}
+
+@keyframes dropIn {
+    from { transform: translateY(-600px); }
+    to { transform: translateY(0); }
+}
+
+#status-bar {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #880e4f;
+    margin-top: 15px;
+}
+
+.control-footer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
